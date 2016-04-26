@@ -1,0 +1,48 @@
+<!-- Share configuration related to this particular Share module extension, such as:
+     - Doclib action config
+     - Form config
+     - Aspect and Type config
+
+    Note. Any configuration related to the whole Share.war webapp
+           (i.e. not specific to this share extension) should be
+            placed in the environment specific config:
+             alfresco/tomcat/shared/classes/alfresco/web-extension/share-config-custom.xml file
+     -->
+<alfresco-config>
+
+    <config evaluator="string-compare" condition="DocLibActions">
+        <actions>
+            <!-- Edit online in LibreOffice -->
+            <action id="document-edit-libreoffice-online" type="javascript"
+                    label="Edit in LibreOffice Online">
+                <!-- TODO: i18n of label -->
+
+                <param name="function">onActionEditInLibreOfficeOnline</param>
+                <permissions>
+                    <permission allow="true">Write</permission>
+                </permissions>
+                <!-- TODO: LibreOffice mimetype check, userAgent check -->
+                <!--<evaluator>evaluator.doclib.action.onlineEdit</evaluator>-->
+                <evaluator>evaluator.doclib.action.editableByCurrentUser</evaluator>
+                <evaluator negate="true">evaluator.doclib.action.isLocked</evaluator>
+            </action>
+        </actions>
+        <actionGroups>
+            <actionGroup id="document-browse">
+                <action index="199" id="document-edit-libreoffice-online" />
+            </actionGroup>
+            <actionGroup id="document-details">
+                <action index="199" id="document-edit-libreoffice-online" />
+            </actionGroup>
+        </actionGroups>
+    </config>
+
+    <config evaluator="string-compare" condition="DocLibCustom">
+        <!-- Custom Code dependencies. Note: files specified in the "src" attribute
+                resolve relative to the /share/res/ servlet context. <dependencies> <css
+                src="my-custom-action.css" /> <js src="my-custom-action.js" /> </dependencies> -->
+        <dependencies>
+            <js src="/components/documentlibrary/edit-libreoffice-online-action.js" />
+        </dependencies>
+    </config>
+</alfresco-config>
