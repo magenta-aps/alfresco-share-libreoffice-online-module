@@ -42,7 +42,9 @@
         <maven.tomcat.port>8081</maven.tomcat.port>
 
         <!-- Used in share-config-custom.xml. By default points to local installation of Alfresco Repo -->
-        <alfresco.repo.url>http://localhost:8080/alfresco</alfresco.repo.url>
+        <!--<alfresco.repo.url>http://localhost:8080/alfresco</alfresco.repo.url>-->
+        <!-- TODO: Switch back to using localhost? -->
+        <alfresco.repo.url>http://alfedu.magenta.dk:8080/alfresco</alfresco.repo.url>
 
     </properties>
 
