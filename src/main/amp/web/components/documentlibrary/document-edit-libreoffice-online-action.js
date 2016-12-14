@@ -15,10 +15,7 @@ YAHOO.Bubbling.fire("registerAction", {
                         // Get fileId from nodeRef (just use the uuid part)
                         var fileId = Alfresco.util.NodeRef(node.nodeRef).id;
 
-                        var wopiFileURL = Alfresco.constants.PROXY_URI + "wopi/files/" + fileId;
-                        // TODO: Use the commented out line above.. the following line is
-                        // a hack:;
-                        //var wopiFileURL = "http://demo.opendesk.dk:8080/alfresco/service/wopi/files/" + fileId;
+                        var wopiFileURL = window.location.origin+"/alfresco/s/wopi/files/" + fileId;
 
                         var frameSrcURL = wopi_src_url + "WOPISrc=" + encodeURIComponent(wopiFileURL);
 
