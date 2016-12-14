@@ -43,9 +43,7 @@
         <maven.tomcat.port>8081</maven.tomcat.port>
 
         <!-- Used in share-config-custom.xml. By default points to local installation of Alfresco Repo -->
-        <!--<alfresco.repo.url>http://localhost:8080/alfresco</alfresco.repo.url>-->
-        <!-- TODO: Switch back to using localhost? -->
-        <alfresco.repo.url>http://alfedu.magenta.dk:8080/alfresco</alfresco.repo.url>
+        <alfresco.repo.url>http://localhost:8080/alfresco</alfresco.repo.url>
 
     </properties>
 
@@ -82,6 +80,44 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
+
+    <profiles>
+        <!--unpack dependencies-->
+        <profile>
+            <id>unpack-deps</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-dependency-plugin</artifactId>
+
+                        <executions>
+                            <execution>
+                                <id>unpack-amps</id>
+                                <phase>prepare-package</phase>
+                                <goals>
+                                    <goal>unpack-dependencies</goal>
+                                </goals>
+                                <configuration>
+                                    <includeTypes>amp</includeTypes>
+                                    <outputDirectory>${alfresco.client.war.folder}</outputDirectory>
+                                </configuration>
+                            </execution>
+                        </executions>
+                        <dependencies>
+                            <dependency>
+                                <groupId>org.alfresco.maven.plugin</groupId>
+                                <artifactId>maven-amp-plugin</artifactId>
+                                <version>3.0.2</version>
+                            </dependency>
+
+                        </dependencies>
+                    </plugin>
+
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 
     <build>
         <plugins>
