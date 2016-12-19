@@ -13,6 +13,9 @@
              placed in the tomcat/shared/classes/alfresco/web-extension/custom-slingshot-application-context.xml file
     -->
 
+
+    <bean id="magenta.page.module.evaluator" class="dk.magenta.libreOffice.online.PageModuleEvaluator" />
+
     <!-- Add module specific messages and labels -->
     <bean id="libreoffice-online-share.resources"
           class="org.springframework.extensions.surf.util.ResourceBundleBootstrapComponent">

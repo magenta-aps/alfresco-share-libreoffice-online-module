@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<template-instance>
+    <template-type>org/alfresco/libreOffice-online-edit</template-type>
+    <components>
+        <!-- My Sites -->
+        <component>
+            <region-id>libreOffice-online-edit</region-id>
+            <url>/components/libreOffice-online-edit</url>
+        </component>
+
+    </components>
+</template-instance>
