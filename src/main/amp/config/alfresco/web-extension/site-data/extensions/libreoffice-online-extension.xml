@@ -21,7 +21,7 @@
                     <actions>
                         <!-- Edit online in LibreOffice -->
                         <!-- TODO: i18n of label -->
-                        <action id="document-edit-libreoffice-online" type="link" label="Edit in LibreOffice Online">
+                        <action id="document-edit-libreoffice-online" type="link" label="actions.document.edit-libreoffice-online">
                             <param name="href">libreOffice-online-edit?nodeRef={node.nodeRef}</param>
                             <param name="target">_self</param>
                             <permissions>
