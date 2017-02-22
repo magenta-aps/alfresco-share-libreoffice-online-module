@@ -21,7 +21,6 @@
 
         try {
             var result = connector.get('/lool/token?nodeRef=' + encodeURI(nodeRef) + '&action=edit');
-            logger.log("\n\n\n result status is: " + result.status.code);
             if (result.status.code == status.STATUS_OK) {
                 var post = JSON.parse(result.response);
                 var wopi_src_url = post.wopi_src_url;
@@ -53,7 +52,7 @@
                 lastName: model.lastName,
                 iFrameURL: model.iFrameURL,
                 userId: model.userId,
-                wopiFileURL: model.wopiFileURL,
+                wopiFileURL: model.wopiFileURL
             }
 
         };

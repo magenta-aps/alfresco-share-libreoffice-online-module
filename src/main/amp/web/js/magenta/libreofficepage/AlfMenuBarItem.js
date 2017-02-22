@@ -14,7 +14,7 @@ define(["dojo/_base/declare", "alfresco/menus/AlfMenuBarItem"],
             onClick: function alfresco_menus__AlfMenuItemMixin__onClick(evt) {
                 if(this.targetUrl == '#back')
                     console.log('Target url is back');
-                window.location = document.referrer;
+                window.location.href = document.referrer;
             }
 
         });
