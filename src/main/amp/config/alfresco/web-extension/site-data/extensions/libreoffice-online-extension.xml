@@ -1,0 +1,80 @@
+<extension>
+    <modules>
+        <module>
+            <id>Global Extensions</id>
+            <version>1.0</version>
+            <auto-deploy>true</auto-deploy>
+            <auto-deploy-index>1</auto-deploy-index>
+
+            <components>
+            </components>
+
+            <customizations>
+                <customization>
+                    <targetPackageRoot>org.alfresco</targetPackageRoot>
+                    <sourcePackageRoot>dk.magenta.libreOffice-online</sourcePackageRoot>
+                </customization>
+            </customizations>
+
+            <configurations>
+                <config evaluator="string-compare" condition="DocLibActions">
+                    <actions>
+                        <!-- Edit online in LibreOffice -->
+                        <!-- TODO: i18n of label -->
+                        <action id="document-edit-libreoffice-online" type="link" label="actions.document.edit-libreoffice-online">
+                            <param name="href">libreOffice-online-edit?nodeRef={node.nodeRef}</param>
+                            <param name="target">_self</param>
+                            <permissions>
+                                <permission allow="true">Write</permission>
+                            </permissions>
+                            <!-- TODO: LibreOffice mimetype check, userAgent check -->
+                            <!--<evaluator>evaluator.doclib.action.onlineEdit</evaluator>-->
+                            <evaluator>evaluator.doclib.action.editableByCurrentUser</evaluator>
+                            <evaluator negate="true">evaluator.doclib.action.isLocked</evaluator>
+                        </action>
+                    </actions>
+                    <actionGroups>
+                        <actionGroup id="document-browse">
+                            <action index="199" id="document-edit-libreoffice-online"/>
+                        </actionGroup>
+                        <actionGroup id="document-details">
+                            <action index="199" id="document-edit-libreoffice-online"/>
+                        </actionGroup>
+                    </actionGroups>
+                </config>
+
+            </configurations>
+        </module>
+
+        <module>
+            <id>libreOffice-Online-Page</id>
+            <version>1.0</version>
+            <auto-deploy>true</auto-deploy>
+            <auto-deploy-index>7</auto-deploy-index>
+            <evaluator type="magenta.page.module.evaluator">
+                <params>
+                    <pageId>libreOffice-online-edit</pageId>
+                </params>
+            </evaluator>
+            <configurations>
+                <config evaluator="string-compare" condition="WebFramework" replace="false">
+                    <web-framework>
+                        <dojo-pages>
+                            <packages>
+                                <package name="libreofficepage" location="js/magenta/libreofficepage"/>
+                            </packages>
+                        </dojo-pages>
+                    </web-framework>
+                </config>
+            </configurations>
+            <customizations>
+                <customization>
+                    <targetPackageRoot>org.alfresco.share.header</targetPackageRoot>
+                    <sourcePackageRoot>dk.magenta.header</sourcePackageRoot>
+                </customization>
+            </customizations>
+        </module>
+
+    </modules>
+</extension>
+
