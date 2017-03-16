@@ -33,6 +33,7 @@ if (typeof Magenta == "undefined" || !Magenta) {
          */
         options: {
             access_token: '',
+            access_token_ttl: '',
             firstName: '',
             lastName: '',
             iFrameURL: '',
@@ -50,7 +51,8 @@ if (typeof Magenta == "undefined" || !Magenta) {
             var me = this;
             require(["jquery"], (function ($) {
                 var form = '<form id="loleafletform" name="loleafletform" target="loleafletframe" action="' + me.options.iFrameURL + '" method="post">' +
-                    '<input name="access_token" value="' + encodeURIComponent(me.options.access_token) + '" type="hidden"/></form>';
+                    '<input name="access_token" value="' + encodeURIComponent(me.options.access_token) +
+                    '<input name="access_token_ttl" value="' + encodeURIComponent(me.options.access_token_ttl) + '" type="hidden"/></form>';
 
                 var frame = '<iframe id="loleafletframe" name= "loleafletframe" allowfullscreen style="width:100%;height:100%;position:absolute;"/>';
 
