@@ -29,6 +29,7 @@
                             </permissions>
                             <!-- TODO: LibreOffice mimetype check, userAgent check -->
                             <!--<evaluator>evaluator.doclib.action.onlineEdit</evaluator>-->
+                            <evaluator>evaluator.dk.magenta.doclib.action.isMimetypeEditableLibreOffice</evaluator>
                             <evaluator>evaluator.doclib.action.editableByCurrentUser</evaluator>
                             <evaluator negate="true">evaluator.doclib.action.isLocked</evaluator>
                         </action>

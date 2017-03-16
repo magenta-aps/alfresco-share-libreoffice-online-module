@@ -30,6 +30,7 @@
                 model.wopiFileURL = wopiFileURL;
                 model.iFrameURL = wopi_src_url + "WOPISrc=" + encodeURI(wopiFileURL);
                 model.access_token = post.access_token;
+                model.access_token_ttl = post.access_token_ttl;
             }
             else
                 throw "Unable to get permission token for document edit"
@@ -48,6 +49,7 @@
             name: "Magenta.LibreOfficeOnline",
             options: {
                 access_token: model.access_token,
+                access_token_ttl: model.access_token_ttl,
                 firstName: model.firstName,
                 lastName: model.lastName,
                 iFrameURL: model.iFrameURL,
@@ -62,6 +64,7 @@
         logger.log("\n\t\t WOPI File url : " + model.wopiFileURL);
         logger.log("\n\t\t iFrame url : " + model.iFrameURL);
         logger.log("\n\t\t Access token : " + model.access_token);
+        logger.log("\n\t\t Access token TTL : " + model.access_token_ttl);
     };
 
 main();
