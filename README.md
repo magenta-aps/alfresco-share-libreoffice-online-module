@@ -1,8 +1,6 @@
 LibreOffice Edit Online Alfresco Share AMP module (V1)
 ========
 
-## Introduction
-
 This is an Alfresco Share AMP module that exposes the LibreOffice OnLine application client.<br/>
 It adds a LibreOffice page to alfresco share wherein the LOOL client is loaded in an iframe.
 It also adds a document library action button to document library views.<br/>
