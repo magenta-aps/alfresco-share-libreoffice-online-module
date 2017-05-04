@@ -5,10 +5,6 @@
             <version>1.0</version>
             <auto-deploy>true</auto-deploy>
             <auto-deploy-index>1</auto-deploy-index>
-
-            <components>
-            </components>
-
             <customizations>
                 <customization>
                     <targetPackageRoot>org.alfresco</targetPackageRoot>
