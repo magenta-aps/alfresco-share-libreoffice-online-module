@@ -25,6 +25,8 @@
                             </permissions>
                             <!-- TODO: LibreOffice mimetype check, userAgent check -->
                             <!--<evaluator>evaluator.doclib.action.onlineEdit</evaluator>-->
+                            <!--see /src/main/resources/alfresco/web-extension/libreoffice-online-share-slingshot-application-context.xml-->
+                            <!--for where the evaluator is defined-->
                             <evaluator>evaluator.dk.magenta.doclib.action.isMimetypeEditableLibreOffice</evaluator>
                             <evaluator>evaluator.doclib.action.editableByCurrentUser</evaluator>
                             <evaluator negate="true">evaluator.doclib.action.isLocked</evaluator>
@@ -58,7 +60,7 @@
                     <web-framework>
                         <dojo-pages>
                             <packages>
-                                <package name="libreofficepage" location="js/magenta/libreofficepage"/>
+                                <package name="libreofficepage" location="libreoffice-online-share/js/magenta/libreofficepage"/>
                             </packages>
                         </dojo-pages>
                     </web-framework>
