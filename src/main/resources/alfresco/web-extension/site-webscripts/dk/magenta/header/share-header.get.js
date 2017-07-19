@@ -9,7 +9,7 @@ if (titleBar) {
 }
 
 if (navMenu){
-    logger.log('--- Found Nav menu ---');
+    logger.warn('--- Found Nav menu ---');
     navMenu.config.widgets = [{
         id: "HEADER_NAVIGATION_BACK_TO_DOC_PREVIEW",
         name: "libreofficepage/AlfMenuBarItem",
