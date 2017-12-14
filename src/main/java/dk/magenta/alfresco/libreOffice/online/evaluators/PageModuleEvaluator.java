@@ -1,4 +1,4 @@
-package dk.magenta.libreOffice.online;
+package dk.magenta.alfresco.libreOffice.online.evaluators;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

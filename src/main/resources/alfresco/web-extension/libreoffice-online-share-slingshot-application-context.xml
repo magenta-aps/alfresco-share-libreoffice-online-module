@@ -13,9 +13,6 @@
              placed in the tomcat/shared/classes/alfresco/web-extension/custom-slingshot-application-context.xml file
     -->
 
-
-    <bean id="magenta.page.module.evaluator" class="dk.magenta.libreOffice.online.PageModuleEvaluator" />
-
     <!-- Add module specific messages and labels -->
     <bean id="libreoffice-online-share.resources"
           class="org.springframework.extensions.surf.util.ResourceBundleBootstrapComponent">
@@ -27,7 +24,8 @@
     </bean>
 
     <!-- Edit Online LibreOffice -->
-    <bean id="evaluator.dk.magenta.doclib.action.isMimetypeEditableLibreOffice" parent="evaluator.doclib.action.isMimetype">
+    <bean id="evaluator.dk.magenta.doclib.action.isMimetypeEditableLibreOffice"
+          parent="evaluator.doclib.action.isMimetype">
         <property name="mimetypes">
             <list>
                 <value>application/clarisworks</value>
@@ -138,6 +136,22 @@
                 <value>image/x-wpg</value>
                 <value>text/csv</value>
                 <value>text/spreadsheet</value>
+            </list>
+        </property>
+    </bean>
+
+    <!--Evaluator-->
+    <bean id="magenta.doclib.action.isCollaborativelyLocked.evaluator"
+          class="dk.magenta.alfresco.libreOffice.online.evaluators.CollaborativeLockEvaluator"/>
+
+    <bean id="magenta.page.module.evaluator"
+          class="dk.magenta.alfresco.libreOffice.online.evaluators.PageModuleEvaluator"/>
+
+    <bean id="magenta.doclib.action.isAnyLock.evaluator" parent="evaluator.doclib.action.chainedMatchOne">
+        <property name="evaluators">
+            <list>
+                <ref bean="evaluator.doclib.metadata.isLocked"/>
+                <ref bean="magenta.doclib.action.isCollaborativelyLocked.evaluator"/>
             </list>
         </property>
     </bean>
