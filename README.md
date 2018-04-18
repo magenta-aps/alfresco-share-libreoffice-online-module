@@ -4,8 +4,8 @@ LibreOffice Edit Online Alfresco Share AMP module (V1)
 This is an Alfresco Share AMP module that exposes the LibreOffice OnLine application client.<br/>
 It adds a LibreOffice page to alfresco share wherein the LOOL client is loaded in an iframe.
 It also adds a document library action button to document library views.<br/>
-Works in conjunction with the repository AMP module (https://github.com/magenta-aps/libreoffice-online-repo).<br/>
-This module was developed against Alfresco version 5.0.d and as such, works with the defaults Aikau version that ships with that version of Alfresco Share.       
+Works in conjunction with the repository AMP module (https://github.com/magenta-aps/alfresco-repo-libreoffice-online-module).<br/>
+This module was developed against Alfresco version 5.0.d and as such, works with the default Aikau version that ships with that version of Alfresco Share.       
         
 ### Alfresco Aikau
 See https://github.com/Alfresco/Aikau for information about the Aikau UI Framework
